@@ -38,3 +38,12 @@ Route::get('/students', [StudentController::class, 'index']);
 
 // menambahkan data student
 Route::post('/students', [StudentController::class, 'store']);
+
+// mengupdate data student
+Route::put('/students/{id}', [StudentController::class, 'update']);
+
+// menghapus data student
+Route::delete('/students/{id}', [StudentController::class, 'destroy']);
+
+// mendapatkan detail data student
+Route::get('/students/{id}', [StudentController::class, 'show']);
