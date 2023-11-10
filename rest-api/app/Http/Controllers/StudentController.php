@@ -11,24 +11,31 @@ class StudentController extends Controller
     {
         $students = Student::all();
 
-        $data = [
-            'message' => 'Get all students',
-            'data' => $students,
-        ];
+        # menghandle data kosong
+        if ($students) {
+            $data = [
+                'message' => 'Get all students',
+                'data' => $students,
+            ];
+        } else {
+            $data = [
+                'message' => 'student empty',
+            ];
+        }
 
         return response()->json($data, 200);
     }
 
     public function store(Request $request)
     {
-        $input = [
-            'nama' => $request->nama,
-            'nim' => $request->nim,
-            'email' => $request->email,
-            'jurusan' => $request->jurusan,
-        ];
+        $validatedData = $request->validate([
+            'nama' => 'required',
+            'nim' => 'numeric|required',
+            'email' => 'email|required',
+            'jurusan' => 'required',
+        ]);
 
-        $student = Student::create($input);
+        $student = Student::create($validatedData);
 
         $data = [
             'message' => 'Student created',
@@ -42,6 +49,7 @@ class StudentController extends Controller
     {
         $student = Student::find($id);
 
+        # menghandle data tidak ada
         if ($student) {
             # mendapatkan data request
             $input = [
@@ -74,6 +82,7 @@ class StudentController extends Controller
     {
         $student = Student::find($id);
 
+        # menghandle data tidak ada
         if ($student) {
             $student->delete();
 
