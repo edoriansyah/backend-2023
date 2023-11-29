@@ -1,2 +1,3 @@
-# Pemrograman Backend
-Repositori Praktikum Mata Kuliah Pemrograman Backend TA 2023 Ganjil
+# Pertemuan 9
+
+Introduction to JavaScript and ES6
