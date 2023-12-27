@@ -1,7 +1,7 @@
 {
   "name": "student-api",
   "version": "1.0.0",
-  "description": "Building RESTful API with Express (1)",
+  "description": "Building RESTful API with Express (2)",
   "main": "index.js",
   "scripts": {
     "start": "nodemon app.js"
